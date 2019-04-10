@@ -1,5 +1,6 @@
 import {takeLatest,put,delay} from 'redux-saga/effects';
 import axios from 'axios';
+
 function* asyncSubmit() {
   let person ='';
   //fake API call using axios to get name of person
@@ -7,7 +8,6 @@ function* asyncSubmit() {
       .then(res => {
         person=res.data.email;
       })
-
   yield delay(4000);
   yield put({type:'LOADING' ,data:person});
 }

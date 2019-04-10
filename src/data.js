@@ -5,8 +5,9 @@ import logo from './logo.svg';
 class Data extends Component {
 
   render() {
-    console.log(this.props);
+
     const {name,email,phone,apidata} = this.props;
+
     const showData = this.props.load ? (<img src={logo} alt="logo" className="App-logo" />) : (
       <div >
       <ul className="collection with-header">
@@ -18,6 +19,7 @@ class Data extends Component {
     </ul>
       </div>
     );
+
     return(
       <div className="container">
           {showData}
@@ -25,15 +27,18 @@ class Data extends Component {
     );
   }
 }
+
 const mapStateToProps =(state) =>{
 return {
     ...state,
     loading:state.loading
   }
 }
+
 const mapDispatchToProps = (dispatch) => {
   return {
     loading:dispatch({type:"LOADING_ASYNC"})
   }
 }
+
 export default connect(mapStateToProps,mapDispatchToProps)(Data);

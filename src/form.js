@@ -2,15 +2,9 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 
 class Form extends Component {
-  state = {
-        fields: {},
-        errors: {}
-      }
-
 
   render() {
     const {editState,submit} =this.props;
-
     return (
       <div className="container" >
       <h1 className="center" > Fill all Information </h1>
@@ -37,11 +31,13 @@ class Form extends Component {
     );
   }
 }
+
 const mapStateToProps = (state) => {
   return {
     ...state
   }
 }
+
 const mapDispatchToProps = (dispatch) => {
   return {
     editState :(name,value) => dispatch({type:"EDIT",name: name, value:value} ),
